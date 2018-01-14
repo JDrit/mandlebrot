@@ -3,4 +3,12 @@ name = "mandlebrot"
 version = "0.1.0"
 authors = ["Joseph Batchik <josephbatchik@gmail.com>"]
 
+[[bin]]
+name = "mandelbrot"
+path = "src/main.rs"
+
 [dependencies]
+num_cpus = "1.8.0"
+crossbeam = "0.3.2"
+image = "0.18.0"
+num = "0.1.41"
