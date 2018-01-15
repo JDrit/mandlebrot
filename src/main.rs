@@ -1,8 +1,6 @@
 extern crate num;
 
-mod output;
 mod render;
-mod threading;
 
 use std::io::Write;
 
@@ -22,13 +20,15 @@ fn main() {
             .expect("error parsing upper left corner point");
         let lower_right = render::parse_complex(&args[4])
             .expect("error parsing lower right corner point");
-        let mut pixels = vec![0 ; bounds.0 * bounds.1];
+
+
+        render::render_img(&args[1], bounds, upper_left, lower_right);
 
         //render::render(&mut pixels, bounds, upper_left, lower_right);
-        threading::render(&mut pixels, bounds, upper_left, lower_right);
+        //threading::render(&mut pixels, bounds, upper_left, lower_right);
 
-        output::write_image(&args[1], &pixels, bounds)
-            .expect("error writing PNG file");
+        //output::write_image(&args[1], &pixels, bounds)
+        //    .expect("error writing PNG file");
     }
 }
 
